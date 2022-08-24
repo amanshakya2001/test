@@ -33,7 +33,6 @@
     <script>
     if ('OTPCredential' in window) {
       window.addEventListener('DOMContentLoaded', e => {
-        alert("Script working");
       const ac = new AbortController();
         navigator.credentials.get({
           otp: { transport:['sms'] },
