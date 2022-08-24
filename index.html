@@ -38,12 +38,12 @@
           otp: { transport:['sms'] },
           signal: ac.signal
         }).then(otp => {
-          let element = otp.code;
-          var values = element.split("");
-          $(values).each(function(index) {
-            var $inputBox = $('#otpInput' + (index + 1));
-            $inputBox.val(values[index]);
-          });
+          $('#otpInput1').val(otp.code);
+          // var values = element.split("");
+          // $(values).each(function(index) {
+          //   var $inputBox = $('#otpInput' + (index + 1));
+          //   $inputBox.val(values[index]);
+          // });
         }).catch(err => {
           console.log(err);
         });
