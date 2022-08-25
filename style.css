@@ -7,16 +7,18 @@
         width: 15px;
       }
       form{
-        background-color: skyblue;
-        width: 30%;
         text-align: center;
         padding: 20px 40px;
       }
       .formWrapper{
+        height: 40vh;
+        background-color: skyblue;
+        border-radius: 20px;
+        width: 30%;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 20px;
+        margin: 20px auto;
       }
       .message{
         background-color: black;

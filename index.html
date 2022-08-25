@@ -20,7 +20,7 @@
     <div class="formWrapper">
       <form action="/submit.html" method="post">
         Enter OTP here:
-        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput1" maxlength="1">
+        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput1" maxlength="1" autofocus="true">
         <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput2" maxlength="1">
         <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput3" maxlength="1">
         <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput4" maxlength="1">
@@ -48,15 +48,16 @@
         });
       });
     }
-    $("input[type=text]").keyup(function () {
-      if (this.value.length == 0) {
-          $(this).blur().parent().prev().children('input[type=text]').focus();
-          $(this).blur().prev('input[type=text]').focus();
+    $("input[type=text]").keyup(function (e) {
+      if (this.value.length == 0 && e.keyCode == 8) {
+        if(this.id != "otpInput1"){
+          $(this).prev('input[type=text]').focus();
+          $(this).blur().prev('input[type=text]').val('');
+        }
       }
       else if (this.value.length == this.maxLength) {
           if (this.id != "otpInput6") {
-              $(this).blur().parent().next().children('input[type=text]').focus();
-              $(this).blur().next('input[type=text]').focus();
+              $(this).next('input[type=text]').focus();
           }
       }
   });
