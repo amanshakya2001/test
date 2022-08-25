@@ -48,6 +48,18 @@
         });
       });
     }
+    $("input[type=text]").keyup(function () {
+      if (this.value.length == 0) {
+          $(this).blur().parent().prev().children('input[type=text]').focus();
+          $(this).blur().prev('input[type=text]').focus();
+      }
+      else if (this.value.length == this.maxLength) {
+          if (this.id != "otpInput6") {
+              $(this).blur().parent().next().children('input[type=text]').focus();
+              $(this).blur().next('input[type=text]').focus();
+          }
+      }
+  });
     </script>
   </body>
 </html>
