@@ -1,0 +1,35 @@
+
+     .heading{
+        text-align: center;
+        text-transform: uppercase;
+     }
+     input[type=text]{
+        width: 15px;
+      }
+      form{
+        background-color: skyblue;
+        width: 30%;
+        text-align: center;
+        padding: 20px 40px;
+      }
+      .formWrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .message{
+        background-color: black;
+        color: white;
+        max-width: 350px;
+        padding: 10px;
+        border-radius: 10px;
+        text-align: justify;
+      }
+      p{
+        text-align: center;
+      }
+      @media(max-width:599px){
+        form{
+            width: 100%;
+        }
+      }

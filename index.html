@@ -6,20 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>div {font-family: sans-serif;}</style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-      input[type=text]{
-        width: 15px;
-      }
-    </style>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1824/1824728.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>
-      The is test application for otp test
+    <h1 class="heading">
+      The is test application for OTP test
     </h1>
-    <div>
-      Send an SMS that includes <pre><code>@amanshakya.tech #123456</code></pre> at the last line to this phone.
+    <div class="message">
+      <p>SMS Template</p>
+      867451 is the verification code to log in to your Bootcamp account. DO NOT share this code with anyone including our agents.<pre><code>@amanshakya.tech #123456</code></pre>
     </div>
-    <div style="border:1px solid; padding: 5px 10px; margin: 10px 0;">
+    <div class="formWrapper">
       <form action="/submit.html" method="post">
         Enter OTP here:
         <input type="text" autocomplete="off" inputmode="numeric" id="otpInput1" maxlength="1">
