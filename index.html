@@ -1,66 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>OTP AUTOFILL</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>div {font-family: sans-serif;}</style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/1824/1824728.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1 class="heading">
-      The is test application for OTP test
-    </h1>
-    <div class="message">
-      <p>SMS Template</p>
-      xxxxxx is the verification code to log in to your Bootcamp account. DO NOT share this code with anyone including our agents.<pre><code>@amanshakya.tech #xxxxxx</code></pre>
-    </div>
-    <div class="formWrapper">
-      <form action="/submit.html" method="post">
-        Enter OTP here:
-        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput1" maxlength="1" autofocus="true">
-        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput2" maxlength="1">
-        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput3" maxlength="1">
-        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput4" maxlength="1">
-        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput5" maxlength="1">
-        <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput6" maxlength="1">
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-    <script>
-    if ('OTPCredential' in window) {
-      window.addEventListener('DOMContentLoaded', e => {
-        const ac = new AbortController();
-        navigator.credentials.get({
-          otp: { transport:['sms'] },
-          signal: ac.signal
-        }).then(otp => {
-          let element = otp.code;
-          var values = element.split("");
-          $(values).each(function(index) {
-              var inputBox = $('#otpInput' + (index + 1));
-              inputBox.val(values[index]);
-          });
-        }).catch(err => {
-          console.log(err);
-        });
-      });
-    }
-    $("input[type=text]").keyup(function (e) {
-      if (this.value.length == 0 && e.keyCode == 8) {
-        if(this.id != "otpInput1"){
-          $(this).prev('input[type=text]').focus();
-          $(this).blur().prev('input[type=text]').val('');
-        }
-      }
-      else if (this.value.length == this.maxLength) {
-          if (this.id != "otpInput6") {
-              $(this).next('input[type=text]').focus();
-          }
-      }
-  });
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Server</title>
+</head>
+<body>
+  <h1>This is main branch</h1>
+</body>
 </html>
