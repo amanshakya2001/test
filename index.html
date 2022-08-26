@@ -1,12 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Server</title>
-</head>
-<body>
-  <h1>This is main branch</h1>
-</body>
+  <head>
+    <title>Photo Gallery</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/223/223117.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .image-wrapper{
+        padding: 5px;
+        transition: all 0.5s;
+      }
+      .image-wrapper:hover{
+        transform: rotateZ(-12deg) scale(0.8,0.8);
+      }
+      .pics-row{
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="gallery">
+      <div class="container-fluid">
+        <div class="row">
+          <h1 class="col-12 text-center bg-info py-3 text-white font-weight-bold">Photo Gallery</h1>
+          <div class="pics-row d-flex col-lg-4 flex-column">
+            <div class="image-wrapper">
+              <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Ym9vayUyMG5hdHVyZXxlbnwwfHwwfHw%3D&w=1000&q=80" alt="image" class="img-fluid">
+            </div>
+            <div class="image-wrapper">
+              <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fHBlcnNvbnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="image" class="img-fluid">
+            </div>
+          </div>
+          <div class="pics-row d-flex col-lg-4 flex-column">
+            <div class="image-wrapper">
+              <img src="https://loveshayariimages.in/wp-content/uploads/2021/10/1080p-Latest-Whatsapp-Profile-Images-1.jpg" alt="image" class="img-fluid">
+            </div>
+            <div class="image-wrapper">
+              <img src="https://openai.com/content/images/2021/01/2x-no-mark-1.jpg" alt="image" class="img-fluid">
+            </div>
+          </div>
+          <div class="pics-row d-flex col-lg-4 flex-column">
+            <div class="image-wrapper">
+              <img src="https://cdn.pixabay.com/index/2022/08/24/06-50-51-598_1440x550.jpg" alt="image" class="img-fluid">
+            </div>
+            <div class="image-wrapper">
+              <img src="http://www.goodmorningimagesdownload.com/wp-content/uploads/2020/06/Alone-Boys-Girls-Images-6.jpg" alt="image" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
+
+
+
+
+
