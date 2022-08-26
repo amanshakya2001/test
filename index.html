@@ -30,7 +30,7 @@
           <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput5" maxlength="1">
           <input type="text" autocomplete="one-time-code" inputmode="numeric" id="otpInput6" maxlength="1">
         </div>
-        <button class="btn btn-success m-auto d-block">Submit</button>
+        <button class="btn btn-success m-auto d-block" onclick="otpsubmit()">Submit</button>
       </div>
     </div>
 
@@ -39,41 +39,45 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
-    if ('OTPCredential' in window) {
-      alert("Otp auto available");
-      window.addEventListener('DOMContentLoaded', e => {
-        const ac = new AbortController();
-        navigator.credentials.get({
-          otp: { transport:['sms'] },
-          signal: ac.signal
-        }).then(otp => {
-          let element = otp.code;
-          var values = element.split("");
-          $(values).each(function(index) {
-              var inputBox = $('#otpInput' + (index + 1));
-              inputBox.val(values[index]);
+        if ('OTPCredential' in window) {
+          alert("Web-Otp API available");
+          window.addEventListener('DOMContentLoaded', e => {
+            const ac = new AbortController();
+            navigator.credentials.get({
+              otp: { transport:['sms'] },
+              signal: ac.signal
+            }).then(otp => {
+              let element = otp.code;
+              var values = element.split("");
+              $(values).each(function(index) {
+                  var inputBox = $('#otpInput' + (index + 1));
+                  inputBox.val(values[index]);
+              });
+              window.location = "https://amanshakya.tech/submit.html";
+            }).catch(err => {
+              console.log(err);
+            });
           });
-        }).catch(err => {
-          console.log(err);
-        });
-      });
-    }
-    else{
-      alert("Otp auto unavailable");
-    }
-    $("input[type=text]").keyup(function (e) {
-      if (this.value.length == 0 && e.keyCode == 8) {
-        if(this.id != "otpInput1"){
-          $(this).prev('input[type=text]').focus();
-          $(this).blur().prev('input[type=text]').val('');
         }
-      }
-      else if (this.value.length == this.maxLength) {
-          if (this.id != "otpInput6") {
-              $(this).next('input[type=text]').focus();
+        else{
+          alert("Web-Otp API unavailable");
+        }
+        $("input[type=text]").keyup(function (e) {
+          if (this.value.length == 0 && e.keyCode == 8) {
+            if(this.id != "otpInput1"){
+              $(this).prev('input[type=text]').focus();
+              $(this).blur().prev('input[type=text]').val('');
+            }
           }
+          else if (this.value.length == this.maxLength) {
+              if (this.id != "otpInput6") {
+                  $(this).next('input[type=text]').focus();
+              }
+          }
+      });
+      function otpsubmit(){
+        window.location = 'https://amanshakya.tech/submit.html';
       }
-  });
     </script>
   </body>
 </html>
