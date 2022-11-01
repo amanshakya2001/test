@@ -1,0 +1,32 @@
+.progress-bar{
+    max-width: 798px;
+    width: 100%;
+    border-radius: 20px;
+    margin: auto;
+    background-color: lightgray;
+    position: relative;
+}
+.progress{
+    background-color: orange;
+    width: 0%;
+    border-radius: 20px;
+}
+.loading{
+    text-align: center;
+    position: absolute;
+    color: black;
+    top: 30px;
+    left: 48%;
+}
+.document{
+    padding-top: 100px;
+}
+.card{
+    margin:10px 0px;
+}
+.progress-section{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
